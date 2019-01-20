@@ -10,4 +10,4 @@ class Pip(object):
         self._namespace = namespace
 
     def install(self):
-        PipInstallCommand().run(self._namespace)
+        return PipInstallCommand().run(self._namespace)

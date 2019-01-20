@@ -35,8 +35,7 @@ def main():
     try:
         namespace = arguments.parse_args()
         configure_logging(namespace)
-        Bootstrap(namespace).run()
-        exit_code = 0
+        exit_code = Bootstrap(namespace).run()
     except ApplicationException as exception:
         logger.error('Failed with error: {}'.format(str(exception)), exc_info=exception)
     except Exception as exception:

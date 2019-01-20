@@ -8,6 +8,6 @@ class Bootstrap(object):
 
     def run(self):
         try:
-            self._package_manager.install()
+            return self._package_manager.install()
         except Exception as exception:
             raise ApplicationException(str(exception))
