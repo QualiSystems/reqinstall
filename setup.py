@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='reqinstall',
-      version='0.0.1',
+      version='0.0.2',
       description='',
       author='Quali',
       license='MIT License',

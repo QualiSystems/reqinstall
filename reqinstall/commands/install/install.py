@@ -1,3 +1,4 @@
+import os
 import sys
 import logging
 import subprocess
@@ -7,6 +8,13 @@ logger = logging.getLogger(__name__)
 
 class PipInstallCommand(object):
     def run(self, namespace):
+        try:
+            with open(namespace.req_path, 'r') as f:
+                requirements = f.read()
+            logger.info('we are about to install the following packages:{linesep}'
+                         '{packages}'.format(linesep=os.linesep, packages=requirements))
+        except Exception:
+            pass
         arguments = [sys.executable, '-m', 'pip', 'install'] + self._install_arguments(namespace)
         logger.info("Running {}".format(' '.join(arguments)))
         return subprocess.call(arguments)
